@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-info text-center">
+  {% for message in messages %}
+    <strong>{{ message }}</strong><br>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+{% block content %}
+{% endblock %}
+<body>
+    <form method="POST" action="">
+        <h1>User Login</h1>
+        <input placeholder="username" type="text" name="username" id=""><br><br>
+        <input placeholder="password" type="text" name="password" id=""><br><br>
+        <button>Login</button>
+        <a href="{{url_for('register')}}">Signup</a>
+    </form>
+</body>
+</html>
